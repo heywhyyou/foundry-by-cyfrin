@@ -16,9 +16,8 @@ contract SimpleStorage {
   // dynamic array (its size can grow and shrink)
   Person[] public listOfPeople; // []
 
-  // Person public pat = Person({favoriteNumber: 7, name: "Pat"});
-  // Person public mariah = Person({favoriteNumber: 16, name: "Mariah"});
-  // Person public jon = Person({favoriteNumber: 12, name: "Jon"});
+  // chelsea -> 232 (just an example)
+  mapping(string => uint256) public nameToFavoriteNumber;
 
   function store(uint256 _favoriteNumber) public {
     myFavoriteNumber = _favoriteNumber;
@@ -29,8 +28,10 @@ contract SimpleStorage {
     return myFavoriteNumber;
   }
 
+  // calldata, memory, storage
   function addPerson(string memory _name, uint256 _favoriteNumber) public {
     listOfPeople.push(Person(_favoriteNumber, _name));
+    nameToFavoriteNumber[_name] = _favoriteNumber;
   }
 
 }
