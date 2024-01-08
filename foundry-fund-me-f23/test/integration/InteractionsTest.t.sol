@@ -15,8 +15,8 @@ contract InteractionsTest is Test {
     uint256 constant GAS_PRICE = 1;
 
     function setUp() external {
-        DeployFundMe deploy = new DeployFundMe();
-        fundMe = deploy.run();
+        DeployFundMe deployFundMe = new DeployFundMe();
+        fundMe = deployFundMe.run();
         vm.deal(USER, STARTING_BALANCE);
     }
 
